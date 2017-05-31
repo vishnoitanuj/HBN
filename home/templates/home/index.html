@@ -1,0 +1,24 @@
+{% extends 'home/base.html' %}
+{% block title %}Home{% endblock %}
+{% block albums_active %}active{% endblock %}
+
+{% block body %}
+    </br>
+{% for inn in all_inn %}
+    <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
+
+                    <div class="mdl-card__media">
+                        <img class="article-image" src=" {{inn.image.url}}" border="0" alt="">
+                    </div>
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">{{inn.title}}</h2>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                       {{ inn.brief }}
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="{% url 'home:detail' inn.id %}">Read more</a>
+                    </div>
+    </div>
+{% endfor %}
+{% endblock %}

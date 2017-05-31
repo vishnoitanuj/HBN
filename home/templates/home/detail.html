@@ -1,0 +1,48 @@
+{% extends 'home/base.html' %}
+{% block title %}Innovation Details{% endblock %}
+{% block head %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% endblock %}
+{% block body %}
+                    <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">Title: {{ innovation.title }}</h2>
+                    </div>
+                        <div class="mdl-card__title">
+                        <h4 class="mdl-card__title-text">Innovator: {{ innovation.innovator }}</h4>
+                    </div>
+                    <div class="mdl-card__media">
+                        <img class="article-image" src="{{ innovation.image.url }}" border="0" alt="">
+                    </div>
+
+                    <div class="mdl-grid portfolio-copy">
+                        <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Introduction</h3>
+                        <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
+                            <p>
+                                {{ innovation.detail }}
+                            </p>
+                        </div>
+                    <form action="{% url 'home:inn-update' innovation.id %}" method="post" style="display: inline;">
+                                {% csrf_token %}
+                                <input type="hidden" name="innovation_id" value="{{ innovation.id }}" />
+                                <button type="submit" class="btn btn-default btn-sm">
+                                    <span class="glyphicon glyphicon-edit"></span>
+                                </button>
+                    </form>
+
+
+
+{#                        <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Irure mollit est sit labore</h3>#}
+{##}
+{#                        <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">#}
+{#                            <p>#}
+{#                                Excepteur reprehenderit sint exercitation ipsum consequat qui sit id velit elit. Velit anim eiusmod labore sit amet. Voluptate voluptate irure occaecat deserunt incididunt esse in. Sunt velit aliquip sunt elit ex nulla reprehenderit qui ut eiusmod ipsum do. Duis veniam reprehenderit laborum occaecat id proident nulla veniam. Duis enim deserunt voluptate aute veniam sint pariatur exercitation. Irure mollit est sit labore est deserunt pariatur duis aute laboris cupidatat. Consectetur consequat esse est sit veniam adipisicing ipsum enim irure.#}
+{#                            </p>#}
+{#                        </div>#}
+                    </div>
+                </div>
+
+{% endblock %}

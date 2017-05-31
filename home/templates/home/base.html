@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load staticfiles %}
+    <link rel="icon"
+          type="image/png"
+          href="{% static 'home/images/hbnlogo.png' %}"/>
+    <link rel="stylesheet" href="{% static 'home/styles.css' %}" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A portfolio template that uses Material Design Lite.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Honey Bee Network {% block title %}{% endblock %}</title>
+    {% block head %}{% endblock %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.grey-pink.min.css" />
+</head>
+
+<body>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header mdl-layout__header--waterfall portfolio-header">
+        <div class="mdl-layout__header-row portfolio-logo-row">
+                <span class="mdl-layout__title">
+                    <a href="{% url 'home:index' %}">
+                        <div class="portfolio-logo"></div>
+                    </a>
+                    <!--<span class="mdl-layout__title">Honey Bee Network</span>-->
+                </span>
+        </div>
+        <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
+            <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+                <a class="mdl-navigation__link" href="{% url 'home:inn-add' %}">Add Innovations</a>
+                <a class="mdl-navigation__link" href="#">Activities</a>
+                <a class="mdl-navigation__link" href="#">Membership</a>
+                <a class="mdl-navigation__link" href="#">Contact</a>
+                <form>
+                    <input type="text" name="search" placeholder="Search Innovations">
+                </form>
+            </nav>
+        </div>
+    </header>
+    <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+        <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+            <a class="mdl-navigation__link is-active" href="{% url 'home:inn-add' %}">Submit Innovations</a>
+            <a class="mdl-navigation__link" href="#">Activities</a>
+            <a class="mdl-navigation__link" href="#">About</a>
+            <a class="mdl-navigation__link" href="#">Membership</a>
+            <a class="mdl-navigation__link" href="#">Contact</a>
+            <form>
+                    <input type="text" name="search" placeholder="Innovations">
+            </form>
+        </nav>
+    </div>
+    <main class="mdl-layout__content">
+            <div class="mdl-grid portfolio-max-width">
+                {% block body %}
+                {% endblock %}
+            </div>
+    </main>
+</div>
+<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+</body>
+
+</html>

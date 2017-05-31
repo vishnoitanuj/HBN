@@ -1,0 +1,35 @@
+{% extends 'home/base.html' %}
+{% block title %}Add Innovation{% endblock %}
+{% block albums_active %}active{% endblock %}
+{% block head %}
+    <link href="https://fonts.googleapis.com/css?family=Orbitron:700" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 style="font-family: 'Orbitron', serif;">Welcome to the Team of Innovators</h3></div>
+                    <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include 'home/form-template.html' %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-12">
+                                <br>
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
