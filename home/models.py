@@ -24,3 +24,13 @@ class Activities(models.Model):
 
     def __str__(self):
         return self.act_title+' - '+self.act_logo
+
+class Announcement(models.Model):
+    title = models.CharField(max_length=30)
+    url = models.URLField(max_length=500)
+    date = models.DateField(auto_now=False)
+    type = models.CharField(max_length=10)
+    head = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.title

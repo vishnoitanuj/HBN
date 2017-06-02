@@ -1,3 +1,6 @@
+.portfolio-navigation-row{
+    max-height: 45px;
+}
 .portfolio-header {
   position: relative;
   background-image: url(images/header-bg.jpg);
@@ -37,20 +40,20 @@
 }
 
 .is-compact .portfolio-logo {
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
   margin-top: 7px;
 }
 
 .portfolio-navigation-row {
   background-color: rgba(0, 0, 0, 0.08);
   text-transform: uppercase;
-  height: 35px;
+  height: 45px;
 }
 
 .portfolio-navigation-row  .mdl-navigation {
   text-align: center;
-  max-width: 400px;
+  max-width: 900px;
   width: 100%;
 }
 
@@ -91,7 +94,7 @@
 }
 
 .portfolio-blog-card-event-bg {
-  background: url(images/example-blog05.jpg) center / cover;
+  background: url(images/rural.jpeg) center / cover;
 }
 
 .portfolio-blog-card-strip-bg {
@@ -167,28 +170,3 @@ footer {
   background-image: url(images/footer-background.png);
   background-size: cover;
 }
-
-
-
-
-/*Search*/
-
-input[type=text] {
-    width: 130px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: white;
-    background-image: url('searchicon.png');
-    background-position: 10px 10px;
-    background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
-}
-
-input[type=text]:focus {
-    width: 100%;
-}
-

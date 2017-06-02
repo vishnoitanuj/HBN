@@ -5,10 +5,17 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import View
 from .forms import UserForm
-from .models import Innovation, Activities
+from .models import Innovation, Activities, Announcement
 
 class IndexView(generic.ListView):
     template_name = 'home/index.html'
+    context_object_name = 'all_announce'
+
+    def get_queryset(self):
+        return Announcement.objects.all()
+
+class InnovationView(generic.ListView):
+    template_name = 'home/innovation.html'
     context_object_name = 'all_inn'
 
     def get_queryset(self):
@@ -19,7 +26,7 @@ class DetailView(generic.DetailView):
     template_name = 'home/detail.html'
 
 class ActivityView(generic.ListView):
-    template_name = 'home/index.html'
+    template_name = 'home/innovation.html'
     context_object_name = 'all_act'
 
     def get_queryset(self):
@@ -35,7 +42,7 @@ class InnovationUpdate(UpdateView):
     template_name= 'home/update_form.html'
     def get(self,request,**kwargs):
         self.object=Innovation.objects.get(id=self.request.id)
-        from_class=self.get_form(form_cla)
+        from_class=self.get_form(form_class='home/update_form.html')
 
 class InnovationDelete(DeleteView):
     model = Innovation
