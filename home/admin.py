@@ -8,6 +8,14 @@ class InnovationModelAdmin(admin.ModelAdmin):
     class Meta:
         model = Innovation
 
+class AnnouncementModelAdmin(admin.ModelAdmin):
+    list_display = ["title","date","head"]
+    list_filter = ["date", "type"]
+    search_fields = ["title","url"]
+    list_editable = ["head"]
+    class Meta:
+        model = Announcement
+
 admin.site.register(Innovation, InnovationModelAdmin)
 admin.site.register(Activities)
-admin.site.register(Announcement)
+admin.site.register(Announcement, AnnouncementModelAdmin)
