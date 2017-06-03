@@ -10,9 +10,9 @@ from .models import Innovation, Activities, Announcement
 class IndexView(generic.ListView):
     template_name = 'home/index.html'
     context_object_name = 'all_announce'
-
     def get_queryset(self):
         return Announcement.objects.all()
+
 
 class InnovationView(generic.ListView):
     template_name = 'home/innovation.html'
