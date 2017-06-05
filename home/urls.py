@@ -7,6 +7,7 @@ urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'innovation/$' , views.InnovationView.as_view(), name='innovation' ),
     url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
+    url(r'activities/$', views.ActivityView.as_view(), name='activities'),
 
     #home/innovation/addInnovation
     url(r'innovation/add/$', views.InnovationCreate.as_view(), name='inn-add'),

@@ -27,11 +27,12 @@ class DetailView(generic.DetailView):
     template_name = 'home/detail.html'
 
 class ActivityView(generic.ListView):
-    template_name = 'home/innovation.html'
+    template_name = 'home/activities.html'
     context_object_name = 'all_act'
 
     def get_queryset(self):
         return Activities.objects.all()
+
 
 class InnovationCreate(CreateView):
     model = Innovation

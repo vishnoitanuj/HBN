@@ -16,6 +16,15 @@ class AnnouncementModelAdmin(admin.ModelAdmin):
     class Meta:
         model = Announcement
 
+class ActivitiesModelAdmin(admin.ModelAdmin):
+    list_display = ["act_title", "act_timestamp"]
+    list_filter = ["act_title"]
+    search_fields = ["act_title", "act_detail"]
+
+    class Meta:
+        model = Activities
+
+
 admin.site.register(Innovation, InnovationModelAdmin)
-admin.site.register(Activities)
+admin.site.register(Activities, ActivitiesModelAdmin)
 admin.site.register(Announcement, AnnouncementModelAdmin)

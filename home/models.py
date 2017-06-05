@@ -24,9 +24,12 @@ class Innovation(models.Model):
 class Activities(models.Model):
     act_title=models.CharField(max_length=100)
     act_logo=models.FileField(blank=True)
+    act_brief = models.CharField(max_length=100,blank=True)
+    act_detail = models.TextField(blank=True)
+    act_timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
 
     def __str__(self):
-        return self.act_title+' - '+self.act_logo
+        return self.act_title+' - '+self.act_brief
 
 class Announcement(models.Model):
     title = models.CharField(max_length=30)
