@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block navbar %}
-    <form id="searchform" action="#"  method="get" accept-charset="utf-8">
+    <form id="searchform" action=""  method="GET" >
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
 						<label class="mdl-button mdl-js-button mdl-button--icon" for="site-search">
 								<i class="material-icons">search</i>
@@ -23,7 +23,7 @@
     <div class="container-fluid">
     <div class="mdl-grid portfolio-max-width">
     </br>
-{% for inn in all_inn %}
+{% for inn in object_list %}
     <div class="mdl-cell mdl-card mdl-shadow--4dp portfolio-card">
 
                     <div class="mdl-card__media">
@@ -40,6 +40,22 @@
                     </div>
     </div>
 {% endfor %}
-    </div>
 
+    {#    Now for pagination#}
+    <div class="pagination">
+    <span class="step-links">
+        {% if object_list.has_previous %}
+            <a href="?{{ page_request_var }}={{ object_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+        </span>
+
+        {% if object_list.has_next %}
+            <a href="?{{ page_request_var }}={{ object_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">next</a>
+        {% endif %}
+    </span>
+</div>
+    </div>
 {% endblock %}

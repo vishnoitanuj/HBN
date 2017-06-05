@@ -9,17 +9,18 @@ class Innovation(models.Model):
     image = models.FileField(default='hbnlogo.png')
     detail = models.TextField(blank=True)
     file = models.FileField(blank=True)
-    updatedtime = models.DateTimeField(auto_now=True, auto_now_add=False)
-    timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
+    updatedtime = models.DateField(auto_now=True, auto_now_add=False)
+    timestamp = models.DateField(auto_now=False, auto_now_add=True)
 
     def get_absolute_url(self):
-        return reverse('home:detail',kwargs={'pk': self.pk} )
+        return reverse('home:detail',kwargs={'pk': self.pk})
 
     def __str__(self):
         return self.innovator+' - '+self.title
 
-    def get_absolute_url(self):
-        return reverse("home:detail", kwargs={"id":self.id})
+    class Meta:
+        ordering = ["-updatedtime","-timestamp"]
+
 
 class Activities(models.Model):
     act_title=models.CharField(max_length=100)
@@ -27,6 +28,7 @@ class Activities(models.Model):
 
     def __str__(self):
         return self.act_title+' - '+self.act_logo
+
 
 class Announcement(models.Model):
     title = models.CharField(max_length=30)
