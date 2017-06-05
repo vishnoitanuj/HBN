@@ -6,6 +6,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.views.generic import View
 from .forms import UserForm
 from .models import Innovation, Activities, Announcement
+from django.db.models import Q
 
 class IndexView(generic.ListView):
     template_name = 'home/index.html'
@@ -39,11 +40,26 @@ class InnovationCreate(CreateView):
 class InnovationUpdate(UpdateView):
     model = Innovation
     fields = ['innovator', 'title', 'brief', 'image', 'detail', 'file']
-    template_name= 'home/update_form.html'
-    def get(self,request,**kwargs):
-        self.object=Innovation.objects.get(id=self.request.id)
-        from_class=self.get_form(form_class='home/update_form.html')
+    template_name_suffix = '_update_form'
 
 class InnovationDelete(DeleteView):
     model = Innovation
     fields = ['innovator', 'title', 'brief', 'image', 'detail', 'file']
+
+class InnovationSearch(generic.ListView):
+    paginate_by = 10
+
+    def get_queryset(self):
+        result = super(InnovationSearch, self).get_queryset()
+
+        query = self.request.GET.get('q')
+        if(query):
+            query_list = query.split()
+            result = result.filter(
+                reduce(operator.and_,
+                       (Q(title__icontains=q) for q in query_list)) |
+                reduce(operator.and_,
+                       (Q(content__icontains=q) for q in query_list))
+            )
+
+        return result

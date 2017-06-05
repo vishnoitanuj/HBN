@@ -6,13 +6,13 @@
 {% endblock %}
 
 {% block navbar %}
-    <form action="#">
+    <form id="searchform" action="#"  method="get" accept-charset="utf-8">
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
 						<label class="mdl-button mdl-js-button mdl-button--icon" for="site-search">
 								<i class="material-icons">search</i>
 							</label>
 							<div class="mdl-textfield__expandable-holder">
-								<input class="mdl-textfield__input" type="search" id="site-search" />
+								<input class="mdl-textfield__input searchfield" name="q" type="search" id="site-search" placeholder="Innovation"/>
 								<label class="mdl-textfield__label" for="site-search">Search</label>
 							</div>
 						</div>

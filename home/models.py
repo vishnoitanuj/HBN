@@ -18,6 +18,9 @@ class Innovation(models.Model):
     def __str__(self):
         return self.innovator+' - '+self.title
 
+    def get_absolute_url(self):
+        return reverse("home:detail", kwargs={"id":self.id})
+
 class Activities(models.Model):
     act_title=models.CharField(max_length=100)
     act_logo=models.FileField(blank=True)

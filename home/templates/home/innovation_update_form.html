@@ -16,22 +16,18 @@
 
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-body">
                     <h3 style="font-family: 'Orbitron', serif;">The Team of Innovators</h3></div>
-                    <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                    <form action="" method="post">
                         {% csrf_token %}
-                        {{ form.as_   }}
-                        <input type="submit" value="Update"/>
+                        {{ form.as_p }}
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-12">
                                 <br>
-                                <button type="submit" class="btn btn-success">Submit</button>
+                                <button type="submit" class="btn btn-success">Update</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 {% endblock %}

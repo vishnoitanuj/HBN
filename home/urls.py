@@ -11,5 +11,6 @@ urlpatterns = [
     #home/innovation/addInnovation
     url(r'innovation/add/$', views.InnovationCreate.as_view(), name='inn-add'),
     url(r'(?P<pk>[0-9]+)/edit/$', views.InnovationUpdate.as_view(), name='inn-update'),
+    url(r'search/$', views.InnovationSearch.as_view(), name='inn-search'),
 
     ]

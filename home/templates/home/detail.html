@@ -16,12 +16,12 @@
                         <h4 class="mdl-card__title-text">Innovator: {{ innovation.innovator }}</h4>
                     </div>
                     <div class="mdl-card__media">
-                        <img class="article-image" src="{{ innovation.image.url }}" border="0" alt="">
+                        <img class="article-image1" src="{{ innovation.image.url }}" border="0" alt="">
                     </div>
 
                     <div class="mdl-grid portfolio-copy">
                         <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Introduction</h3>
-                        <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
+                        <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text no-padding ">
                             <p>
                                 {{ innovation.detail }}
                             </p>
@@ -45,6 +45,5 @@
 {#                        </div>#}
                     </div>
                 </div>
-    </div>
 
 {% endblock %}
