@@ -23,7 +23,21 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
      {% block head %}{% endblock %}
 </head>
-
+<body>
+<ol class="container">
+    <ol class="breadcrumb">
+        <li><a href="{% url 'home:index' %}">Home</a></li>
+        <li><a href="{% url 'home:about-us' %}">About-Us</a></li>
+        {% if not request.user.is_authenticated %}
+        <li class="pull-right"><a href="{% url 'home:register'%}">Register</a></li>
+        <li class="pull-right"><a href="{% url 'home:login'%}">Login</a></li>
+        {% else %}
+        <li class="pull-right"><a href="{% url 'home:logout'%}">Logout</a></li>
+        {% endif %}
+    </ol>
+</ol>
+{#FaceBook Login Script#}
+{#End FB Login Script#}
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
     <header class="mdl-layout__header mdl-layout__header--waterfall portfolio-header">
         <div class="mdl-layout__header-row portfolio-logo-row">
@@ -37,7 +51,7 @@
         <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
             <nav class="mdl-navigation mdl-typography--body-1-fo0rce-preferred-font">
                 <a class="mdl-navigation__link" href="{% url 'home:innovation' %}">Innovations</a>
-                <a class="mdl-navigation__link" href="#">Activities</a>
+                <a class="mdl-navigation__link" href="{% url 'home:activities' %}">Activities</a>
                 <a class="mdl-navigation__link" href="#">Magazine</a>
                 <a class="mdl-navigation__link" href="#">Forum</a>
                 {% block navbar %}{% endblock %}
@@ -46,17 +60,17 @@
     </header>
     <div class="mdl-layout__drawer mdl-layout--small-screen-only">
         <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
-            <a class="mdl-navigation__link is-active" href="{% url 'home:inn-add' %}">Submit Innovations</a>
-            <a class="mdl-navigation__link" href="#">Activities</a>
-            <a class="mdl-navigation__link" href="#">About</a>
-            <a class="mdl-navigation__link" href="#">Membership</a>
-            <a class="mdl-navigation__link" href="#">Contact</a>
-            <form>
-                    <input type="text" name="search" placeholder="Innovations">
-            </form>
+            <a class="mdl-navigation__link" href="{% url 'home:innovation' %}">Innovations</a>
+                <a class="mdl-navigation__link" href="{% url 'home:activities' %}">Activities</a>
+                <a class="mdl-navigation__link" href="#">Magazine</a>
+                <a class="mdl-navigation__link" href="#">Forum</a>
+                <a class="mdl-navigation__link" href="#">About Us</a>
+            {% block navbar2 %}{% endblock %}
         </nav>
     </div>
     <main class="mdl-layout__content">
+    <div class="fb-like"  data-share="true"  data-width="450"  data-show-faces="true">
+</div>
 
                 {% block body %}
                 {% endblock %}
@@ -68,12 +82,12 @@
       <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
       <h1 class="mdl-mega-footer__heading">Find Us: </h1>
       <ul class="mdl-mega-footer__link-list">
-          <li><i style="font-size:24px" class="fa">&#xf095;</i>&nbsp;+91-8437593296</li><br/>
-          <li><i style="font-size:24px" class="fa">&#xf003;</i>&nbsp;summerschool@sristi.org</li><br/>
+          <a href="tel:+91-8437593296"><li><i style="font-size:24px" class="fa">&#xf095;</i>&nbsp;+91-8437593296</li></a><br/>
+          <a href="mailto:summerschool@sristi.org?subject=Online Enquiry"><li><i style="font-size:24px" class="fa">&#xf003;</i>&nbsp;summerschool@sristi.org</a></li><br/>
         <li><i style="font-size:24px" class="fa">&#xf124;</i>&nbsp;Indian Institute Management</li>
         <li>Bhakri Road</li>
         <li>Ahmedabad, Gujrat</li>
-        <li><strong>&nbsp;&nbsp;&nbsp;&nbsp;Pin Code:</strong>226012</li>
+        <li><strong>Pin Code:</strong>226012</li>
       </ul>
     </div>
 
@@ -112,7 +126,7 @@
     <div class="mdl-mega-footer__drop-down-section">
       <input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
       <h1 class="mdl-mega-footer__heading">Feedback/Suggestions</h1>
-      <form action="#" class="">
+      <form action="#" method="POST" class="">
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                                 <textarea class="mdl-textfield__input" type="text" rows="5" id="note"></textarea>
                                 <label class="mdl-textfield__label mdl-color-text--grey" for="note">Enter Note</label>
@@ -134,7 +148,6 @@
       <li><a href="#">Privacy & Terms</a></li>
     </ul>
   </div>
-
 </footer>
 
 <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>

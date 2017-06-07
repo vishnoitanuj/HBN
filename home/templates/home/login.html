@@ -1,0 +1,29 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+   <div class="mdl-grid portfolio-max-width">
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 style="font-family: 'Orbitron', serif;">{{ title }}</h3></div>
+                    <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include 'home/form-template.html' %}
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-12">
+                                <br>
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

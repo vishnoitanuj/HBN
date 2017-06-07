@@ -113,11 +113,11 @@
 
 img.article-image {
   width: 100%;
-  height: 250px;
+  height: 300px;
 }
 img.article-image1{
   width: 100%;
-  height: 600px;
+  height: 400px;
 }
 
 img.article-image-top {
@@ -179,3 +179,11 @@ footer {
   background-size: cover;
 }
 
+
+.mdl-list__item-primary-content{
+  font-size: x-large;
+}
+
+.demo-list-item{
+  padding-top: 30%;
+}

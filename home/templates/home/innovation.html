@@ -18,6 +18,20 @@
 						</div>
 				</form>
 {% endblock %}
+{% block navbar2 %}
+    <form id="searchform" action=""  method="GET" >
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
+{#						<label class="mdl-button mdl-js-button mdl-button--icon" for="site-search">#}
+{#								<i class="material-icons">search</i>#}
+{#							</label>#}
+							<div class="mdl-textfield">
+								<input class="mdl-textfield__input searchfield" name="q" type="search" id="site-search" placeholder="Search Innovation"/>
+								<label class="mdl-textfield__label" for="site-search">Search</label>
+							</div>
+						</div>
+				</form>
+{% endblock %}
+
 
 {% block body %}
     <div class="container-fluid">
@@ -33,7 +47,7 @@
                         <h2 class="mdl-card__title-text">{{inn.title}}</h2>
                     </div>
                     <div class="mdl-card__supporting-text">
-                       {{ inn.brief }}
+                       {{ inn.detail|truncatewords:30 }}
                     </div>
                     <div class="mdl-card__actions mdl-card--border">
                         <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="{% url 'home:detail' inn.id %}">Read more</a>

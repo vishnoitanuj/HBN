@@ -1,18 +1,20 @@
 from django.views import generic
-import operator
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import View
-from .forms import UserForm
-from .models import Innovation, Activities, Announcement
+from .models import Innovation, Activities, Announcement, NetworkMember, Suggestion
 from django.db.models import Q
-import functools
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
+from django.contrib.auth import login, authenticate
+from django.shortcuts import render, redirect
+from .forms import UserLoginForm, UserRegisterForm
+from django.contrib.auth import login,logout, get_user_model,authenticate,get_user
 
 class IndexView(generic.ListView):
+    model = Suggestion
     template_name = 'home/index.html'
     context_object_name = 'all_announce'
     def get_queryset(self):
@@ -79,22 +81,92 @@ class DetailView(generic.DetailView):
     model=Innovation
     template_name = 'home/detail.html'
 
+class ActivityDetail(generic.DetailView):
+    model = Activities
+    template_name = 'home/activity_detail.html'
+
+class InnovationCreate(CreateView):
+    model = Innovation
+    fields = ['innovator', 'title','location','image', 'detail', 'file' ]
+
+class InnovationUpdate(UpdateView):
+    model = Innovation
+    fields = ['innovator', 'title', 'location','image', 'detail', 'file']
+    template_name_suffix = '_update_form'
+
+class InnovationDelete(DeleteView):
+    model = Innovation
+    fields = ['innovator', 'title','location', 'image', 'detail', 'file']
+
+
 class ActivityView(generic.ListView):
-    template_name = 'home/innovation.html'
+    template_name = 'home/activities.html'
     context_object_name = 'all_act'
 
     def get_queryset(self):
         return Activities.objects.all()
 
-class InnovationCreate(CreateView):
-    model = Innovation
-    fields = ['innovator', 'title', 'brief','image', 'detail', 'file' ]
+class AboutView(generic.ListView):
+    template_name = 'home/about.html'
+    context_object_name = 'all_mem'
 
-class InnovationUpdate(UpdateView):
-    model = Innovation
-    fields = ['innovator', 'title', 'brief', 'image', 'detail', 'file']
-    template_name_suffix = '_update_form'
+    def get_queryset(self):
+        return NetworkMember.objects.all()
 
-class InnovationDelete(DeleteView):
-    model = Innovation
-    fields = ['innovator', 'title', 'brief', 'image', 'detail', 'file']
+#
+# def signup(request):
+#     if request.method == 'POST':
+#         form = SignUpForm(request.POST)
+#         if form.is_valid():
+#             user = form.save()
+#             user.refresh_from_db()  # load the profile instance created by the signal
+#             user.profile.birth_date = form.cleaned_data.get('birth_date')
+#             user.save()
+#             raw_password = form.cleaned_data.get('password1')
+#             user = authenticate(username=user.username, password=raw_password)
+#             login(request, user)
+#             return redirect('index')
+#     else:
+#         form = SignUpForm()
+#     return render(request, 'home/signup.html', {'form': form})
+
+
+def login_view(request):
+    print(request.user.is_authenticated())
+    title = "Login"
+    form = UserLoginForm(request.POST or None)
+    if form.is_valid():
+        username  = form.cleaned_data.get("username")
+        password = form.cleaned_data.get('password')
+        user = authenticate(username=username, password=password)
+        login(request,user)
+        print(request.user.is_authenticated())
+        #redirect
+        return redirect("/home")
+    return render(request, "home/form.html", {"form":form,"title":title})
+
+def logout_view(request):
+    logout(request)
+    return redirect("/home")
+
+User = get_user_model()
+def register_view(request):
+    print(request.user.is_authenticated())
+    title = "Register"
+    form = UserRegisterForm(request.POST or None)
+    if form.is_valid():
+        user=form.save(commit=False)
+        password=form.cleaned_data.get('password')
+        user.set_password(password)
+        user.save()
+
+        new_user = authenticate(username=user.username, password=password)
+        login(request, new_user)
+        return redirect("/home")
+
+    context = {
+        "form": form,
+        "title": title
+    }
+    return render(request, "home/form.html", context)
+

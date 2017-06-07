@@ -1,0 +1,128 @@
+{% extends 'home/base.html' %}
+{% block title %}Innovations{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+.demo-list-action {
+  width: 300px;
+}
+</style>
+{% endblock %}
+{% block albums_active %}active{% endblock %}
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+{% block navbar %}
+<a href="{% url 'home:inn-add' %}">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add Innovation
+                </a>
+{% endblock %}
+{% block body %}
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--9-col">
+                    <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
+                    <div class="mdl-card__title">
+                        <h2 class="mdl-card__title-text">Honey Bee Network</h2>
+                    </div>
+                    <div class="mdl-card__media">
+                        {% load staticfiles %}
+                        <img class="article-image-top" src="{% static 'home/images/anilg.jpg' %} " border="0" alt="">
+                    </div>
+
+                    <div class="mdl-grid portfolio-copy">
+                        <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">WHO WE ARE</h3>
+                        <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text no-padding ">
+                            <p>
+                                Honey Bee Network is a crucible of like-minded individuals, innovators, farmers, scholars, academicians, policy makers, entrepreneurs and non-governmental organizations (NGOs). A Network having presence in more than seventy five countries, what has made Honey Bee Network tight knit and efficiently functional is its philosophy. Honey Bee signifies a philosophy of discourse, which is authentic, accountable and fair. The Network has been woven around three basic ideals. The Network believes that a knowledge system in order to become sustainable has to be both just and fair. Hence, while collecting knowledge from the knowledge holder, the Network has made it a norm to acknowledge the knowledge provider with name and reference, if otherwise not desired by the knowledge provider. This particular practice has come handy in protecting the IPR of the knowledge provider. In the second place, the source of knowledge i.e. in the case of Honey Bee Network, the traditional knowledge holders and grassroots innovators must be acknowledged, if otherwise desired so by the knowledge holders themselves. Finally, any proceed that accrues from the value addition of local traditional knowledge and innovation; a fair and reasonable share must go back to the knowledge holders. These have been the guiding principles of the Network, which are fundamental to the functioning of the network and constitute the major non-negotiable for the Network.
+                            </p>
+                        </div>
+                        <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">WHAT ARE WE DOING</h3>
+
+                        <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text no-padding ">
+                           <p>
+                               Over the last 25 years or so, the Honey Bee Network has lived the very spirit of the philosophy that it holds so dearly. Moreover, the actions that have followed the philosophy have grown and matured over a period of time and their trajectory of maturation has been based upon the strong realization of the essence of the philosophy. ‘Honey Bee’ Newsletter, the creative mouthpiece of the network, is published in seven Indian languages (Hindi, Gujarati, Tamil, Kannada, Telugu, Malayalam and Oriya) other than English. The very logic tells that any documentation and dissemination of local and traditional knowledge and innovations in English, certainly connects us globally but alienates locally. Living out the concern, the regional language versions reach out to the thousands grassroots knowledge holders, who otherwise would have been alienated from the benefits of knowledge, they themselves contribute in the first place. Acknowledging the very source of the traditional knowledge, the Honey Bee Newsletter and its regional versions carry stories of the local ingenuity with the consent of the knowledge holder. Another source of acknowledging the local genius has been preparing the database of the traditional knowledge and grassroots innovations and Honey Bee Network, over the last twenty years has documented more than 1,00,000 ideas, innovations and traditional knowledge practices. Honey Bee, true to its metaphor, has been the source of pollination and cross-pollination of ideas, creativity and grassroots genius, without taking away the nectar from the flower for ever.
+                           </p>
+                        </div>
+                        <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">WHO ARE OUR MEMBERS</h3>
+
+                        <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text no-padding ">
+                            <p>
+                               The journey for the Honey Bee Network has been both adventurous as well as insightful. However, more than anything else, the journey has been mutually enriching, thanks to all the partner organizations, who constitute the Honey Bee Network. Following are the institutional collaborators of the Honey Bee Network
+                         <ul>
+                            <li>
+                                Society for Research and Initiatives for Sustainable Technologies and Institutions (SRISTI)
+                            </li>
+                            <li>
+                                National Innovation Foundation (NIF).
+                            </li>
+                            <li>
+                                Grassroots Innovation Augmentation Network (GIAN)
+                            </li>
+                            <li>
+                                SEVA, Madurai.
+                            </li>
+                            <li>
+                                Pritvi
+                            </li>
+                            <li>
+                                PEDES, Kerela.
+                            </li>
+                            <li>
+                                Innovation Club, Orissa.
+                            </li>
+                            <li>
+                                Network of Gram Vidyapeethas.
+                            </li>
+                            <li>
+                                Palle Srujana, Andhara Pradesh
+                            </li>
+                        </ul>
+                           </p>
+                            <p>
+                                Besides the institutional collaborators we have individual collaborators from Jammu & Kashmir, Rajasthan (Mr. Sundaram Varma), Himachal Pradesh and Punjab (Mr. Janmeyajay Jhol).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+          <div class="mdl-cell mdl-cell--3-col">
+                        <h2 class="mdl-card__title-text">Our Members</h2>
+           {% for mem in all_mem %}
+            <div class="mdl-card__media">
+                        <a href="#"> <img class="article-image" src="{{ mem.pic.url }}" border="0" alt=""></a>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <p>{{ mem.name }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+                <div class="mdl-cell mdl-cell--12-col mdl-cell--1-col-tablet mdl-card mdl-shadow--4dp ">
+{#                    <div class="mdl-card__media">#}
+{#                        <a href="#"> <img class="article-image" src=" {% static 'home/images/announcement1.jpg' %}" border="0" alt=""></a>#}
+{#                    </div>#}
+{#                    <div class="mdl-card__supporting-text">#}
+{#                        <h3><strong>Announcements</strong></h3>#}
+{#                    </div>#}
+                    {% for ann in all_announce %}
+                        <li class="mdl-list__item mdl-list__item--two-line">
+                            <span class="mdl-list__item-primary-content">
+                              <i class="material-icons mdl-list__item-avatar">labelt</i>
+                                <a href="{{ ann.url }}" target="_blank"><span><h4>{{ ann.title }}</h4></span></a>
+                              <span class="mdl-list__item-sub-title">{{ ann.date }}</span>
+                            </span>
+                            <span class="mdl-list__item-secondary-content">
+                              <span class="mdl-list__item-secondary-info">{{ ann.type }}</span>
+                            </span>
+                        </li>
+                    {% endfor %}
+                </div>
+        </div>
+
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--6-col">
+          6
+      </div>
+      <div class="mdl-cell mdl-cell--4-col">4</div>
+    </div>
+{% endblock %}

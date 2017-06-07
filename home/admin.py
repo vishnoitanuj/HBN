@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Innovation, Activities, Announcement
+from .models import Innovation, Activities, Announcement, NetworkMember
 
 class InnovationModelAdmin(admin.ModelAdmin):
     list_display = ["title", "innovator", "updatedtime","timestamp"]
@@ -19,3 +19,4 @@ class AnnouncementModelAdmin(admin.ModelAdmin):
 admin.site.register(Innovation, InnovationModelAdmin)
 admin.site.register(Activities)
 admin.site.register(Announcement, AnnouncementModelAdmin)
+admin.site.register(NetworkMember)

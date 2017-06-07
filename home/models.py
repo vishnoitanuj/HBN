@@ -1,11 +1,15 @@
+
 from django.db import models
+from django.db.models.signals import post_save
+from django.contrib.auth.models import User
+from django.dispatch import receiver
 from django.core.urlresolvers import reverse
 
 # Create your models here.
 class Innovation(models.Model):
     innovator = models.CharField(max_length= 250, blank=True)
     title = models.CharField(max_length=250)
-    brief = models.CharField (max_length=100)
+    location = models.CharField(max_length=100)
     image = models.FileField(default='hbnlogo.png')
     detail = models.TextField(blank=True)
     file = models.FileField(blank=True)
@@ -24,10 +28,14 @@ class Innovation(models.Model):
 
 class Activities(models.Model):
     act_title=models.CharField(max_length=100)
-    act_logo=models.FileField(blank=True)
+    back = models.FileField()
+    act_logo=models.FileField(blank=True,default='hbnlogo.png')
+    act_url=models.CharField(max_length=50,blank=True)
+    act_detail = models.TextField(blank=True)
+    act_timestamp = models.DateField()
 
     def __str__(self):
-        return self.act_title+' - '+self.act_logo
+        return self.act_title+' - '+self.act_url
 
 
 class Announcement(models.Model):
@@ -39,3 +47,19 @@ class Announcement(models.Model):
 
     def __str__(self):
         return self.title
+
+
+
+class NetworkMember(models.Model):
+    name = models.CharField(max_length=50)
+    picture = models.FileField()
+
+    def __str__(self):
+        return self.name
+
+class Suggestion(models.Model):
+    message = models.TextField(blank=True)
+    posted_on = models.DateTimeField(auto_now=True, auto_now_add=False)
+
+    def __str__(self):
+        return self.posted_on

@@ -1,0 +1,31 @@
+{% extends 'home/base.html' %}
+{% block title %}Home{% endblock %}
+{% block albums_active %}active{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+    <div class="mdl-grid portfolio-max-width">
+    <br>
+{% for act in all_act %}
+   <div class="mdl-card__media mdl-cell mdl-cell--12-col-tablet">
+                        <img class="article-image" src=" {{ act.act_logo.url }}" border="0" alt="">
+                    </div>
+                    <div class="mdl-cell mdl-cell--8-col">
+                        <h2 class="mdl-card__title-text">{{ act.act_title }}</h2>
+                        <div class="mdl-card__supporting-text padding-top">
+                            <span>{{ act.act_timestamp }}</span>
+                        </div>
+                        <div class="mdl-card__supporting-text no-left-padding">
+                            <p>{{ act.act_detail| truncatewords:30 }}</p>
+                            <div class="mdl-card__actions mdl-card--border">
+                                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent" href="{% url 'home:act-detail' act.id %}">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+{% endfor %}
+    </div>
+
+{% endblock %}
