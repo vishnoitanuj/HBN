@@ -33,6 +33,9 @@
         <li class="pull-right"><a href="{% url 'home:login'%}">Login</a></li>
         {% else %}
         <li class="pull-right"><a href="{% url 'home:logout'%}">Logout</a></li>
+            {% if user.first_name %}
+        <li class="pull-right">Welcome,{{ user.first_name }}</li>
+                {% endif %}
         {% endif %}
     </ol>
 </ol>

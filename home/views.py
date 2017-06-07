@@ -9,9 +9,11 @@ from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
 from django.contrib.auth import login, authenticate
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,HttpResponseRedirect,get_object_or_404
 from .forms import UserLoginForm, UserRegisterForm
-from django.contrib.auth import login,logout, get_user_model,authenticate,get_user
+from django.contrib.auth import login,logout, get_user_model,authenticate
+from .forms import InnovationForm
+from django.contrib import messages
 
 class IndexView(generic.ListView):
     model = Suggestion
@@ -85,18 +87,54 @@ class ActivityDetail(generic.DetailView):
     model = Activities
     template_name = 'home/activity_detail.html'
 
-class InnovationCreate(CreateView):
-    model = Innovation
-    fields = ['innovator', 'title','location','image', 'detail', 'file' ]
+# class InnovationCreate(CreateView):
+#     model = Innovation
+#     fields = ['innovator', 'title','location','image', 'detail', 'file' ]
 
-class InnovationUpdate(UpdateView):
-    model = Innovation
-    fields = ['innovator', 'title', 'location','image', 'detail', 'file']
-    template_name_suffix = '_update_form'
+def innovation_create(request):
+    form = InnovationForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        instance = form.save(commit=False)
+        instance.save()
+        return HttpResponseRedirect(instance.get_absolute_url())
+    context = {
+        "form": form,
+    }
+    return render(request,"home/innovation_form.html", context)
 
-class InnovationDelete(DeleteView):
-    model = Innovation
-    fields = ['innovator', 'title','location', 'image', 'detail', 'file']
+
+def innovation_update(request, pk=None):
+    instance = get_object_or_404(Innovation,pk=pk)
+    form = InnovationForm(request.POST or None, request.FILES or None, instance=instance)
+    if form.is_valid():
+        instance = form.save(commit=False)
+        instance.save()
+        return HttpResponseRedirect(instance.get_absolute_url())
+
+    context = {
+        "title":instance.title,
+        "instance":instance,
+        "form": form,
+    }
+    return render(request, "home/innovation_form.html", context)
+
+
+def innovation_delete(request, pk=None):
+    instance = get_object_or_404(Innovation, pk=pk)
+    instance.delete()
+    messages.success(request,"Successfully Deleted")
+    return redirect("home:innovation")
+
+
+
+# class InnovationUpdate(UpdateView):
+#     model = Innovation
+#     fields = ['innovator', 'title', 'location','image', 'detail', 'file']
+#     template_name_suffix = '_update_form'
+#
+# class InnovationDelete(DeleteView):
+#     model = Innovation
+#     fields = ['innovator', 'title','location', 'image', 'detail', 'file']
 
 
 class ActivityView(generic.ListView):

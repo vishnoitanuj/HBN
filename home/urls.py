@@ -19,9 +19,9 @@ urlpatterns = [
 
 
     #home/innovation/addInnovation
-    url(r'innovation/add/$', views.InnovationCreate.as_view(), name='inn-add'),
-    url(r'(?P<pk>[0-9]+)/edit/$', views.InnovationUpdate.as_view(), name='inn-update'),
-    url(r'(?P<pk>[0-9]+)/delete/$', views.InnovationDelete.as_view(), name='inn-delete'),
+    url(r'innovation/add/$', views.innovation_create, name='inn-add'),
+    url(r'(?P<pk>[0-9]+)/edit/$', views.innovation_update, name='inn-update'),
+    url(r'(?P<pk>[0-9]+)/delete/$', views.innovation_delete, name='inn-delete'),
     url(r'about/',views.AboutView.as_view(), name='about-us'),
 
     #sign-up

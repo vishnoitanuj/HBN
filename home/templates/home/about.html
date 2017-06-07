@@ -90,10 +90,10 @@
                         <h2 class="mdl-card__title-text">Our Members</h2>
            {% for mem in all_mem %}
             <div class="mdl-card__media">
-                        <a href="#"> <img class="article-image" src="{{ mem.pic.url }}" border="0" alt=""></a>
+                        <a href="#"> <img class="article-image" src="{{ mem.picture.url }}" border="0" alt=""></a>
                     </div>
                     <div class="mdl-card__supporting-text">
-                        <p>{{ mem.name }}</p>
+                        <p style="text-align: center"><strong>{{ mem.name }}</strong></p>
                     </div>
                 </div>
             {% endfor %}
@@ -117,7 +117,6 @@
                         </li>
                     {% endfor %}
                 </div>
-        </div>
 
     <div class="mdl-grid">
       <div class="mdl-cell mdl-cell--6-col">

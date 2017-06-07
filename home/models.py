@@ -5,16 +5,26 @@ from django.contrib.auth.models import User
 from django.dispatch import receiver
 from django.core.urlresolvers import reverse
 
+
+def upload_location(instance, filename):
+    return "%s/%s"%(instance.id,filename)
 # Create your models here.
 class Innovation(models.Model):
     innovator = models.CharField(max_length= 250, blank=True)
     title = models.CharField(max_length=250)
     location = models.CharField(max_length=100)
-    image = models.FileField(default='hbnlogo.png')
+    image = models.ImageField(
+        upload_to=upload_location,
+        width_field="width_field",
+        height_field='height_field',
+        default='hbnlogo.png')
+    width_field=models.IntegerField(default=0)
+    height_field=models.IntegerField(default=0)
     detail = models.TextField(blank=True)
     file = models.FileField(blank=True)
     updatedtime = models.DateField(auto_now=True, auto_now_add=False)
     timestamp = models.DateField(auto_now=False, auto_now_add=True)
+    tag = models.CharField(max_length=50, blank=True, default='guest')
 
     def get_absolute_url(self):
         return reverse('home:detail',kwargs={'pk': self.pk})
