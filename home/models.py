@@ -73,3 +73,16 @@ class Suggestion(models.Model):
 
     def __str__(self):
         return self.posted_on
+
+class InnovationOfDay(models.Model):
+    title=models.CharField(max_length=20)
+    innovator_name = models.CharField(max_length=50)
+    location = models.CharField(max_length=50)
+    detail = models.TextField()
+    image = models.FileField()
+    width_field = models.IntegerField(default=0)
+    height_field = models.IntegerField(default=0)
+    mark = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.title

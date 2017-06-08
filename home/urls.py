@@ -10,9 +10,10 @@ from .views import logout_view,register_view,login_view
 app_name='home'
 urlpatterns = [
     #/home/
-    url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^$', views.index_view, name='index'),
     url(r'innovation/$' , views.innovation_list, name='innovation' ),
     url(r'^(?P<pk>[0-9]+)/$', views.DetailView.as_view(), name='detail'),
+    url(r'^(?P<pk>[0-9]+)/detail$', views.DayDetailView.as_view(), name='day-detail'),
     url(r'(?P<pk>[0-9]+)/activities/$', views.ActivityDetail.as_view(), name='act-detail'),
     url(r'activities/$', views.ActivityView.as_view(), name='activities'),
 

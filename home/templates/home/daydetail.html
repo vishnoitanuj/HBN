@@ -7,7 +7,7 @@
         <div class="mdl-grid">
              <div class="mdl-cell mdl-cell--2-col"></div>
           <div class="mdl-cell mdl-cell--4-col">
-              <img class="article-image1" src="{{ innovation.image.url }}" border="1" alt="">
+              <img class="article-image1" src="{{ innovationofday.image.url }}" border="1" alt="">
           </div>
             <div class="mdl-cell mdl-cell--2-col"></div>
           <div class="mdl-cell mdl-cell--4-col">
@@ -15,17 +15,17 @@
               <ul class="demo-list-item mdl-list">
                   <li class="mdl-list__item">
                     <span class="mdl-list__item-primary-content">
-                      Innovator: {{ innovation.innovator }}
+                      Innovator: {{ innovationofday.innovator_name }}
                     </span>
                   </li>
                   <li class="mdl-list__item">
                     <span class="mdl-list__item-primary-content">
-                      Title: {{ innovation.title }}
+                      Title: {{ innovationofday.title }}
                     </span>
                   </li>
                   <li class="mdl-list__item">
                     <span class="mdl-list__item-primary-content">
-                      Location: {{ innovation.location }}
+                      Location: {{ innovationofday.location }}
                     </span>
                   </li>
               </ul>
@@ -36,12 +36,12 @@
         <div class="mdl-cell mdl-cell--2-col"></div>
              <div class="mdl-cell mdl-cell--9-col">
                  <h3>Description:</h3><br>
-                 {{ innovation.detail| linebreaks }}
+                 {{ innovationofday.detail| linebreaks }}
              </div>
         <div class="mdl-cell mdl-cell--1-col"></div>
-{#                    <form action="{% url 'home:inn-update' innovation.id %}" method="post" style="display: inline;">#}
+{#                    <form action="{% url 'home:inn-update' inn.id %}" method="post" style="display: inline;">#}
 {#                                {% csrf_token %}#}
-{#                                <input type="hidden" name="innovation_id" value="{{ innovation.id }}" />#}
+{#                                <input type="hidden" name="innovation_id" value="{{ inn.id }}" />#}
 {#                                <button type="submit" class="btn btn-default btn-sm">#}
 {#                                    <span class="glyphicon glyphicon-edit"></span>#}
 {#                                </button>#}

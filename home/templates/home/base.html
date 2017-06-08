@@ -24,6 +24,25 @@
      {% block head %}{% endblock %}
 </head>
 <body>
+<script>
+window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '291844637893502',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v2.8'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
 <ol class="container">
     <ol class="breadcrumb">
         <li><a href="{% url 'home:index' %}">Home</a></li>
@@ -123,6 +142,7 @@
             <!-- LinkedIn -->
 <a href="https://www.linkedin.com/shareArticle?mini=true&url=&title=&summary=" title="Page on LinkedIn" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--linkedin"><i class="fa fa-linkedin fa-fw"></i> LinkedIn</a>
         </li>
+
       </ul>
     </div>
 

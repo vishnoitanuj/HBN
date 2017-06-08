@@ -4,23 +4,31 @@ from django.contrib.auth import authenticate, login
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import View
-from .models import Innovation, Activities, Announcement, NetworkMember, Suggestion
+from .models import Innovation, Activities, Announcement, NetworkMember, Suggestion,InnovationOfDay
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
 from django.contrib.auth import login, authenticate
-from django.shortcuts import render, redirect,HttpResponseRedirect,get_object_or_404
+from django.shortcuts import render, redirect,HttpResponseRedirect,get_object_or_404,render_to_response
 from .forms import UserLoginForm, UserRegisterForm
 from django.contrib.auth import login,logout, get_user_model,authenticate
 from .forms import InnovationForm
 from django.contrib import messages
 
-class IndexView(generic.ListView):
-    model = Suggestion
-    template_name = 'home/index.html'
-    context_object_name = 'all_announce'
-    def get_queryset(self):
-        return Announcement.objects.all()
+# class IndexView(generic.ListView):
+#     template_name = 'home/index.html'
+#     context_object_name = 'all_announce'
+#     def get_queryset(self):
+#         return Announcement.objects.all()
+
+def index_view(request):
+    announcement = Announcement.objects.all()
+    inn_day = InnovationOfDay.objects.all()
+    context = {
+        "all_announce": announcement,
+        "inn":inn_day,
+    }
+    return render(request, "home/index.html", context)
 
 
 # class InnovationView(generic.ListView):
@@ -43,6 +51,9 @@ class IndexView(generic.ListView):
 #             )
 #
 #         return result
+
+
+
 
 
 def innovation_list(request):
@@ -82,6 +93,10 @@ def innovation_list(request):
 class DetailView(generic.DetailView):
     model=Innovation
     template_name = 'home/detail.html'
+
+class DayDetailView(generic.DetailView):
+    model=InnovationOfDay
+    template_name = 'home/daydetail.html'
 
 class ActivityDetail(generic.DetailView):
     model = Activities
