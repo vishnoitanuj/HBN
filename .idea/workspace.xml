@@ -5,11 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e4f11a5-62b4-4204-94e1-2ad073e41e9b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/hbn/settings/__py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Procfile" afterPath="$PROJECT_DIR$/Procfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hbn/settings/production.py" afterPath="$PROJECT_DIR$/hbn/settings/production.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/16602025_1340632365993847_920215414814510266_o_cjEodYI.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/16602025_1340632365993847_920215414814510266_o_w9v8VVU.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/Ashtesh_Kumar.PNG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/IMG_0077.JPG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/IMG_0077_JUoVirx.JPG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/IMG_0077_N1yHvlD.JPG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/IMG_0082.JPG" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/TANUJ.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/UHU003_Syllabus.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/g-shutterbug_VuXVuob.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/g-skaterboy.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/g-skaterboy_xy8rPfQ.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/g-yellowwall.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/g-yellowwall_3EblyvK.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/g-yellowwall_BjZ37av.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/g-yellowwall_QkR58aa.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/g-yellowwall_ab4AqZA.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/g-yellowwall_clsmqHy.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/g-yellowwall_kavy18z.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/g-yellowwall_moVxdoX.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/hacker-2077138_1920.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/hi_transparent0.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/instagram1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/media/ticket.PNG" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hbn/wsgi.py" afterPath="$PROJECT_DIR$/hbn/wsgi.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,7 +75,7 @@
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+              <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -82,23 +101,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="production.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="production.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hbn/settings/production.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
               <caret line="2" column="9" lean-forward="false" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-              <folding>
-                <marker date="1497010010672" expanded="true" signature="101:143" ph="import ..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wsgi.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="wsgi.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hbn/wsgi.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+            <state relative-caret-position="306">
+              <caret line="20" column="46" lean-forward="false" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
               <folding>
                 <element signature="e#220#229#0" expanded="true" />
               </folding>
@@ -229,8 +246,8 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/hbn/wsgi.py" />
         <option value="$PROJECT_DIR$/hbn/settings/production.py" />
+        <option value="$PROJECT_DIR$/hbn/wsgi.py" />
       </list>
     </option>
   </component>
@@ -627,7 +644,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27035332" sideWeight="0.49394855" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26956522" sideWeight="0.49394855" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -994,7 +1011,7 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1007,22 +1024,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hbn/wsgi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
-          <folding>
-            <element signature="e#220#229#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hbn/settings/production.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="9" lean-forward="false" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hbn/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="20" column="46" lean-forward="false" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
           <folding>
-            <marker date="1497010010672" expanded="true" signature="101:143" ph="import ..." />
+            <element signature="e#220#229#0" expanded="true" />
           </folding>
         </state>
       </provider>
