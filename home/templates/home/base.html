@@ -23,7 +23,6 @@
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
      {% block head %}{% endblock %}
 </head>
-<body>
 <script>
 window.fbAsyncInit = function() {
     FB.init({
@@ -43,6 +42,11 @@ window.fbAsyncInit = function() {
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 </script>
+<body>
+
+
+{#FaceBook Login Script#}
+{#End FB Login Script#}
 <ol class="container">
     <ol class="breadcrumb">
         <li><a href="{% url 'home:index' %}">Home</a></li>
@@ -58,9 +62,8 @@ window.fbAsyncInit = function() {
         {% endif %}
     </ol>
 </ol>
-{#FaceBook Login Script#}
-{#End FB Login Script#}
 <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
     <header class="mdl-layout__header mdl-layout__header--waterfall portfolio-header">
         <div class="mdl-layout__header-row portfolio-logo-row">
                 <span class="mdl-layout__title">
@@ -74,8 +77,7 @@ window.fbAsyncInit = function() {
             <nav class="mdl-navigation mdl-typography--body-1-fo0rce-preferred-font">
                 <a class="mdl-navigation__link" href="{% url 'home:innovation' %}">Innovations</a>
                 <a class="mdl-navigation__link" href="{% url 'home:activities' %}">Activities</a>
-                <a class="mdl-navigation__link" href="#">Magazine</a>
-                <a class="mdl-navigation__link" href="#">Forum</a>
+                <a class="mdl-navigation__link" href="https://issuu.com/sristiorg" target="_blank">Magazine</a>
                 {% block navbar %}{% endblock %}
             </nav>
         </div>
@@ -84,9 +86,7 @@ window.fbAsyncInit = function() {
         <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
             <a class="mdl-navigation__link" href="{% url 'home:innovation' %}">Innovations</a>
                 <a class="mdl-navigation__link" href="{% url 'home:activities' %}">Activities</a>
-                <a class="mdl-navigation__link" href="#">Magazine</a>
-                <a class="mdl-navigation__link" href="#">Forum</a>
-                <a class="mdl-navigation__link" href="#">About Us</a>
+                <a class="mdl-navigation__link" href="https://issuu.com/sristiorg" target="_blank">Magazine</a>
             {% block navbar2 %}{% endblock %}
         </nav>
     </div>
@@ -128,19 +128,19 @@ window.fbAsyncInit = function() {
       <h1 class="mdl-mega-footer__heading">Find Us Online</h1>
       <ul class="mdl-mega-footer__link-list">
         <li>
-        <a href="#" title="Page on Twitter" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--twitter"><i class="fa fa-twitter fa-fw"></i> Twitter</a>
+        <a href="https://twitter.com/honeybeenetwork" title="Page on Twitter" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--twitter"><i class="fa fa-twitter fa-fw"></i> Twitter</a>
         </li><br/>
         <li>
             <!-- Facebook -->
-<a href="#" title="Page on Facebook" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--facebook"><i class="fa fa-facebook fa-fw"></i> Facebook</a>
+<a href="https://www.facebook.com/Honey.Bee.Network/" title="Page on Facebook" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--facebook"><i class="fa fa-facebook fa-fw"></i> Facebook</a>
         </li><br/>
         <li>
             <!-- Google+ -->
-<a href="#" title="Page on Google+" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--googleplus"><i class="fa fa-google-plus fa-fw"></i> Google+</a>
+<a href="https://in.pinterest.com/anilgb/honey-bee-network/?eq=honey%20bee%20network&etslf=10324" title="Page on Pinterest" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--googleplus"><i class="fa fa-pinterest"></i>&nbsp;&nbsp;Pinterest</a>
         </li><br/>
         <li>
             <!-- LinkedIn -->
-<a href="https://www.linkedin.com/shareArticle?mini=true&url=&title=&summary=" title="Page on LinkedIn" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--linkedin"><i class="fa fa-linkedin fa-fw"></i> LinkedIn</a>
+<a href="https://www.linkedin.com/company-beta/1251466/" title="Page on LinkedIn" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--linkedin"><i class="fa fa-linkedin fa-fw"></i> LinkedIn</a>
         </li>
 
       </ul>

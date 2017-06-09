@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import View
-from .models import Innovation, Activities, Announcement, NetworkMember, Suggestion,InnovationOfDay
+from .models import Innovation, Activities, Announcement, NetworkMember, Suggestion,InnovationOfDay,MeetProf,FrontImage
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
@@ -24,9 +24,13 @@ from django.contrib import messages
 def index_view(request):
     announcement = Announcement.objects.all()
     inn_day = InnovationOfDay.objects.all()
+    prof = MeetProf.objects.all()
+    front= FrontImage.objects.all()
     context = {
         "all_announce": announcement,
         "inn":inn_day,
+        "prof_meet":prof,
+        "front": front,
     }
     return render(request, "home/index.html", context)
 

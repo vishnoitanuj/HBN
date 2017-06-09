@@ -1,8 +1,11 @@
 {% extends 'home/base.html' %}
 {% block title %}Innovations{% endblock %}
 {% block head %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link href="https://fonts.googleapis.com/css?family=Merriweather:700|Mogra|Patrick+Hand+SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anton|Cormorant+SC:600|Merriweather|Mogra|Patrick+Hand+SC" rel="stylesheet">
     <style>
 .demo-list-action {
   width: 300px;
@@ -38,7 +41,7 @@
 
                         <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text no-padding ">
                             <p>
-                                {{ day.detail | linebreaks | safe | truncatewords:50}}
+                                {{ day.detail | linebreaks | safe | truncatewords:40}}
                             </p>
                         </div>
                         <div class="mdl-card__actions mdl-card--border">
@@ -57,37 +60,48 @@
                 </div>
     </div>
       <div class="mdl-cell mdl-cell--7-col">
-                    <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
-                    <div class="mdl-card__title">
-                        <h2 class="mdl-card__title-text">About</h2>
-                    </div>
-                    <div class="mdl-card__media">
-                        {% load staticfiles %}
-                        <img class="article-image-top" src="{% static 'home/images/example-blog06.jpg' %} " border="0" alt="">
-                    </div>
+      <div class="mdl-card__title">
+          <h1 class="mdl-card__title-text" style="font-family: 'Cormorant SC', serif; font-size: 45px"><strong>Our Activities</strong></h1>
+      </div>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        {% for p in front %}
+      <li data-target="#myCarousel" data-slide-to="{{ p }}"></li>
+      {% endfor %}
+    </ol>
 
-                    <div class="mdl-grid portfolio-copy">
-                        <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Introduction</h3>
-                        <div class="mdl-cell mdl-cell--12-col mdl-card__supporting-text no-padding ">
-                            <p>
-                                Honey Bee Network is a crucible of like-minded individuals, innovators, farmers, scholars, academicians, policy makers, entrepreneurs and non-governmental organizations (NGOs).
-                                A Network having presence in more than seventy five countries, what has made Honey Bee Network tight knit and efficiently functional is its philosophy.
-                                Honey Bee signifies a philosophy of discourse, which is authentic, accountable and fair.The Network has been woven around three basic ideals.
-                                Network believes that a knowledge system in order to become sustainable has to be both just and fair. Hence, while collecting knowledge from the knowledge holder, the Network has made it a norm to acknowledge the knowledge provider with name and reference, if otherwise not desired by the knowledge provider.
-                                This particular practice has come handy in protecting the IPR of the knowledge provider. In the second place, the source of knowledge i.e. in the case of Honey Bee Network, the traditional knowledge holders and grassroots innovators must be acknowledged, if otherwise desired so by the knowledge holders themselves. Finally, any proceed that accrues from the value addition of local traditional knowledge and innovation; a fair and reasonable share must go back to the knowledge holders. These have been the guiding principles of the Network, which are fundamental to the functioning of the network and constitute the major non-negotiable for the Network.
-                            </p>
-                        </div>
-{#                        <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Irure mollit est sit labore</h3>#}
-{##}
-{#                        <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">#}
-{#                            <p>#}
-{#                                Excepteur reprehenderit sint exercitation ipsum consequat qui sit id velit elit. Velit anim eiusmod labore sit amet. Voluptate voluptate irure occaecat deserunt incididunt esse in. Sunt velit aliquip sunt elit ex nulla reprehenderit qui ut eiusmod ipsum do. Duis veniam reprehenderit laborum occaecat id proident nulla veniam. Duis enim deserunt voluptate aute veniam sint pariatur exercitation. Irure mollit est sit labore est deserunt pariatur duis aute laboris cupidatat. Consectetur consequat esse est sit veniam adipisicing ipsum enim irure.#}
-{#                            </p>#}
-{#                        </div>#}
-                    </div>
-                </div>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+    {% for p in front %}
+    {% if forloop.counter == 1 %}
+    <div class="item active">
+    {% else %}
+    <div class="item">
+    {% endif %}
+        <img src="{{ p.pic.url }}" alt="Image" width="100%" class="img-responsive">
+  <div class="carousel-caption">
+    <h3>{{ p.title }}</h3>
+    <p>{{ p.detail }}</p>
+  </div>
+    </div>
+    {% endfor %}
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
 
             </div>
+
+
 
           <div class="mdl-cell mdl-cell--3-col">
           {% for ann in all_announce %}
@@ -129,11 +143,29 @@
                         </li>
                     {% endfor %}
                 </div>
+          {% for meet in prof_meet %}
+          <div class="demo-card-event mdl-cell mdl-cell--12-col mdl-cell--4-col-tablet mdl-card mdl-card mdl-shadow--4dp portfolio-blog-card-event-bg mdl-color-text--white">
+                        <div class="mdl-card__title mdl-card--expand">
+                            <h4 class="mdl-color-text--white">
+                                <b style="font-family: 'Patrick Hand SC', cursive; font-size: larger">Meet Professor</b><br><br>
+                              {{ meet.prof_name }}:<br>
+                              {{ meet.date }}<br>
+                            </h4>
+                        </div>
+                        <div class="mdl-card__actions mdl-card--border">
+                            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
+                              Add to Calendar
+                            </a>
+                            <div class="mdl-layout-spacer"></div>
+                            <i class="material-icons ">event</i>
+                        </div>
+              </div>
+          {% endfor %}
           </div>
-    <div class="mdl-grid">
-      <div class="mdl-cell mdl-cell--6-col">
-          6
-      </div>
-      <div class="mdl-cell mdl-cell--4-col">4</div>
-    </div>
+{#    <div class="mdl-grid">#}
+{#      <div class="mdl-cell mdl-cell--6-col">#}
+{#          6#}
+{#      </div>#}
+{#      <div class="mdl-cell mdl-cell--4-col">4</div>#}
+{#    </div>#}
 {% endblock %}

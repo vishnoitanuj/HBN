@@ -86,3 +86,19 @@ class InnovationOfDay(models.Model):
 
     def __str__(self):
         return self.title
+
+class MeetProf(models.Model):
+    prof_name = models.CharField(max_length=100)
+    date = models.DateTimeField(auto_now=False)
+    location = models.CharField(max_length=100)
+    def __str__(self):
+        return self.prof_name+'-'+self.location
+
+class FrontImage(models.Model):
+    pic=models.ImageField(upload_to=upload_location,
+        width_field="width_field",
+        height_field='height_field')
+    width_field = models.IntegerField(default=0)
+    height_field = models.IntegerField(default=0)
+    title=models.CharField(max_length=25)
+    detail=models.CharField(max_length=75)
