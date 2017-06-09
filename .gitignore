@@ -1,6 +1,6 @@
 .DS_Store
 db.sqlite3
-
+/hbn/settings/local.py
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
