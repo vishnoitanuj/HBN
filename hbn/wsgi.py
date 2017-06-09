@@ -15,10 +15,8 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hbn.settings")
 
 application = get_wsgi_application()
 
-try:
-    from dj_static import Cling
+from whitenoise.django import DjangoWhiteNoise
 
-    application = Cling(get_wsgi_application())
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bootcamp.settings")
 
-except:
-    pass
+application = DjangoWhiteNoise(application)
