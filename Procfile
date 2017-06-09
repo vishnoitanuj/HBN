@@ -1,1 +1,1 @@
-web: gunicorn hbn.wsgi
+web: python manage.py runserver 0.0.0.0:$PORT
