@@ -4,12 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/home/models.py" line="23" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e4f11a5-62b4-4204-94e1-2ad073e41e9b" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hbn/settings/production.py" afterPath="$PROJECT_DIR$/hbn/settings/production.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hbn/wsgi.py" afterPath="$PROJECT_DIR$/hbn/wsgi.py" />
-    </list>
+    <list default="true" id="1e4f11a5-62b4-4204-94e1-2ad073e41e9b" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -621,7 +616,7 @@
     <option name="totallyTimeSpent" value="11000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="572" y="63" width="774" height="593" extended-state="1" />
+    <frame x="572" y="63" width="774" height="593" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
